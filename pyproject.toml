@@ -1,0 +1,44 @@
+[tool.poetry]
+name = "vt2-optimization-datamodels"
+version = "0.2.0"
+description = "Optimization MILP and datamodels for forecasting"
+authors = ["Rui Vieira <ruivieira.pro@gmail.com>"]
+readme = "README.md"
+package-mode = false
+
+[tool.poetry.dependencies]
+python = "^3.10"
+pandas = "^2.2.3"
+numpy = "^1.26.4"
+pulp = "^2.9.0"
+matplotlib = "^3.9.3"
+networkx = "^3.4.2"
+cplex = { path = "/Applications/CPLEX_Studio2211/cplex/python/3.10/arm64_osx/" }
+python-dotenv = "^1.0.1"
+openai = "^1.58.1"
+seaborn = "^0.13.2"
+numpy-financial = "^1.0.0"
+statsmodels = "^0.14.4"
+cvxpy = "^1.4.2"
+code2prompt = "^0.8.1"
+xgboost = "^3.0.2"
+scikit-learn = "^1.7.0"
+pyyaml = "^6.0.2"
+joblib = "^1.5.1"
+pvlib = "^0.10.2"
+optuna = "^3.0.0"
+plotly = "^5.0.0"
+tensorflow = "^2.15.0"
+scikit-optimize = "^0.10.2"
+
+[tool.poetry.group.dev.dependencies]
+ipykernel = "^6.29.5"
+pytest = "^8.3.5"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+packages = [
+  { include = "src", from = "forecast" }
+]

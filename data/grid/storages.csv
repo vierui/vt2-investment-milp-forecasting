@@ -1,0 +1,5 @@
+id,name,bus,p_mw,energy_mwh,efficiency_store,efficiency_dispatch,capex,lifetime_years,discount_rate
+3001,Storage 1,2,100.0,200.0,0.9,0.95,3500,10,0.05
+3002,Storage 2,3,10.0,300.0,0.9,0.95,7850,12,0.06
+3003,Storage 3,1,25.0,100.0,0.95,0.99,4250,11,0.045
+3004,Storage 4,4,25.0,100.0,0.95,0.99,4650,10,0.045

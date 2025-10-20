@@ -1,0 +1,111 @@
+{
+  "years": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30
+  ],
+  "generators": {
+    "1001": {
+      "years_installed": [
+        1,
+        26
+      ]
+    },
+    "1002": {
+      "years_installed": [
+        19
+      ]
+    },
+    "1003": {
+      "years_installed": [
+        1,
+        26
+      ]
+    },
+    "1005": {
+      "years_installed": [
+        24
+      ]
+    },
+    "1006": {
+      "years_installed": [
+        1,
+        26
+      ]
+    },
+    "1007": {
+      "years_installed": [
+        9
+      ]
+    },
+    "1008": {
+      "years_installed": [
+        1
+      ]
+    },
+    "1009": {
+      "years_installed": [
+        1
+      ]
+    }
+  },
+  "storage": {
+    "3001": {
+      "years_installed": [
+        1,
+        11,
+        21
+      ]
+    },
+    "3002": {
+      "years_installed": [
+        1,
+        13,
+        25
+      ]
+    },
+    "3003": {
+      "years_installed": [
+        1,
+        12,
+        23
+      ]
+    },
+    "3004": {
+      "years_installed": [
+        1,
+        11,
+        21
+      ]
+    }
+  },
+  "objective_value": 306750510.2320258,
+  "status": "optimal"
+}

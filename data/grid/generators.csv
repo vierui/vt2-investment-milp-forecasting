@@ -1,0 +1,12 @@
+id,name,bus,capacity_mw,cost_mwh,type,capex,lifetime_years,discount_rate,mutual_exclusion_group
+1001,Thermal Generator 1,1,220.0,10,thermal,10000,25,0.08,
+1002,Thermal Generator 2,1,250.0,11,thermal,10000,30,0.08,
+1003,Solar Generator 1,1,2.0,0,solar,6000000,25,0.03,
+1004,Solar Generator 2,2,2.0,70,solar,8000000,25,0.075,
+1005,Wind Generator 2,4,10.0,0,wind,7000000,25,0.04,
+1006,Solar Generator 3,3,1.0,0,solar,4000000,25,0.03,
+1007,Solar Generator 1,4,1.0,0,solar,8000000,25,0.03,
+1008,Wind Generator 3,4,1.0,0,wind,8000000,25,0.03,
+1009,Wind Generator 4,4,1.0,0,wind,8500000,25,0.03,
+1010,Diesel GT,1,10,90,thermal,70000,4,0.08,thermal_alt
+1020,CCGT,1,50,45,thermal,950000,25,0.08,thermal_alt
