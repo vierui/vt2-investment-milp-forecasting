@@ -1,13 +1,16 @@
 
-# Investment model for energy assets : Power-flow MILP optimization and lifetime-cycle planning
+# Investment Model for Energy Assets
+_Power-flow MILP optimization, lifetime-cycle planning and photovoltaic forecasting module_
 
-## OVERVIEW
-VT2 is an optimization and modeling toolkit for long-term energy infrastructure planning. It helps planners and engineers determine what to build, when to build it, and how to operate it over a multi-decade horizon, using a robust mixed-integer linear programming (MILP) core and integrated data-driven forecasting.
 
-This project is the direct continuation of VT1, expanding from single-year and scenario-based analysis to detailed multi-period, lifecycle-aware decision making.
+This repo is an investment and long-term energy infrastructure planning. It helps determine which assets to build, when to build them, and for how long they should operate. It uses mixed-integer linear programming (MILP), which allows both the allocation of electricity demand/supply on a grid and the selection of the most suitable assets considering their lifetimes ; all while minimizing the total system cost over multiple years.
+
+Out of personal interest, I also developed a forecasting module for photovoltaic generation using the supervised machine learning algorithm XGBoost. I aimed to analyze how feature engineering improves model performance and compared the results with traditional time-series forecasting models such as (S)ARIMA. Robust testing and secondary implementations are not yet completed.
+
+This project is the direct continuation of my [first-semester project](https://github.com/vierui/vt1-energy-investment-model), expanding from single-year and scenario-based analysis to detailed multi-period, lifecycle-aware decision-making, with a focus on computational efficiency.
 
 ## MOTIVATION
-Energy system investment planning is complex: planners must decide what to build, when to build it, and how to operate it as costs, technologies, and demand evolve. Traditional scenario-based methods are limited—they require manual case definition, cannot capture asset lifecycles, and often miss better solutions hidden in the combinatorial space.
+Energy system investment planning is complex. Traditional scenario-based methods require manual case definition, cannot capture asset lifecycles, and often miss better solutions hidden in the combinatorial space.
 
 This milp-investment model addresses these challenges by:
 - Replacing scenario-by-scenario analysis with direct global optimization over all possible asset mixes and schedules.
@@ -20,9 +23,9 @@ This milp-investment model addresses these challenges by:
 ### MILP Optimization
 - Multi-year investment planning: Optimizes asset commissioning, operation, and retirement across the full planning horizon.
 - Automatic asset selection: Chooses the optimal mix and timing from all available candidates.
-- Vectorized constraint formulation: Efficiently builds large optimization problems for scalable performance.
+- Vectorized constraint formulation: Efficiently builds large optimization problems for scalable computational needs.
 - Annualized cost modeling: Accurately reflects capital and operating costs year by year.
-- Dynamic demand adaptation: Updates asset decisions as projected load evolves.
+- Dynamic demand simulation: Updates asset decisions as projected load evolves.
 - Asset lifecycle management: Tracks asset status for installation, operation, and retirement within the model.
 
 ### Forecasting
@@ -40,7 +43,7 @@ This milp-investment model addresses these challenges by:
 
 ### Install
 ```
-git clone https://github.com/vierui/investment-milp-forecasting.git
+git clone https://github.com/vierui/vt2-investment-milp-forecasting.git
 cd investment-milp-forecasting
 poetry install
 poetry shell
@@ -57,15 +60,35 @@ python notebooks/E-weatherfeatures.py
 ```
 
 ## EXAMPLE OUTPUTS AND RESULTS
-- Asset Timeline
+### Figure 1: Multi-Year Asset Timeline
+![Asset Timeline](results/milp/asset_timeline.png)
 
-Shows when assets are built, operated, and retired.
-- Generation Mix (Years 5 vs. 25)
+**Interpretation**:
+- Shows when each asset is commissioned, operational, and during the configured horizon
+- The model handles growing demand and 'smartly' pick choses to build alternatives assets to mitigates costs
 
-Illustrates portfolio evolution as demand grows.
-- Forecasting Results
+---
 
-Compares XGBoost vs. SARIMA for PV prediction.
+### Figure 2: Generation Mix Evolution (Winter Season)
+
+| Year 1 | Year 30 |
+|--------|---------|
+| ![Winter Mix Year 1](results/milp/winter_mix_year1.png) | ![Winter Mix Year 30](results/milp/winter_mix_year30.png) |
+
+**Interpretation**:
+- Stacked area charts show hourly dispatch patterns over representative winter week
+- Demonstrates how the optimizer balances capacity expansion with load growth
+- Demonstrates assets limitations and need for diversification and additional ressources
+
+---
+
+### Figure 3: Forecasting Performance (Daily MAE)
+![Daily MAE](results/forecasting/mae-daily.png)
+
+**Interpretation**:
+- Shows mean absolute error (MAE) for day-ahead PV forecasting across multiple days
+- Demonstrates model accuracy degradation over extended forecast horizons
+- Lower MAE values indicate better forecast performance
 
 ## HOW IT WORKS 
 - Inputs:
@@ -82,14 +105,12 @@ Compares XGBoost vs. SARIMA for PV prediction.
    - PV generation pipeline (optional) uses time, lagged, and weather features; supports rapid model experimentation
 
 ## FUTUR WORK 
-- Add constraints in dcopf algorithm (e.g. ramp-up /-down)
 - Experiment with alternative forecasting models or physical features 
 - Robust model testing for ML forecasting
 - Scale to larger grids—see results section for benchmarks
 
 ## ACKNOWLEDGEMENTS
 Built as part of a master’s project at ZHAW School of Engineering.
-Thanks to the open-source Python community, ZHAW IEFE for support, and all contributors to CVXPY, XGBoost, and pvlib.
 
 For technical details and methods, see the project report in report/main.pdf. Questions or feedback welcome. Feel free to reach out or open an issue!
 
